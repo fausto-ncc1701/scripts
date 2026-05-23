@@ -10,13 +10,13 @@ $DadosInfra = Import-Csv -Path $PathInfra -Delimiter ";"
 # Identifica a coluna de espaço com caractere especial corrompido de forma dinâmica
 $ColunaEspaco = ($DadosInfra | Get-Member -MemberType NoteProperty | Where-Object { $_.Name -like "*Espa*o*" }).Name
 
-Write-Host "Abrindo o Excel em segundo plano para ler a TESPX..." -ForegroundColor Cyan
+Write-Host "Abrindo o Excel em segundo plano para ler a CMDB_XXXXX.xlsx"..." -ForegroundColor Cyan
 $Excel = New-Object -ComObject Excel.Application
 $Excel.Visible = $false
-$Workbook = $Excel.Workbooks.Open($PathTESPX)
+$Workbook = $Excel.Workbooks.Open($PathCMDB_xxxxx.xlsx")
 $Worksheet = $Workbook.Sheets.Item(1)
 
-# Descobre a quantidade de linhas preenchidas na TESPX
+# Descobre a quantidade de linhas preenchidas na CMDB_xxxxx.xlsx"
 $Rows = $Worksheet.UsedRange.Rows.Count
 
 # Carrega os dados do Excel para uma Hashtable usando limpeza de caracteres especiais na chave
